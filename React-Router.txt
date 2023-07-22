@@ -1,0 +1,102 @@
+<Link>--can be used only to navigate within the pages we have created
+<a>---can be used to navigate any link
+
+<Link>
+<NavLink>---it can sense the location of us. It will add active class <a class href> when im in a particular page then the class will be set to active
+<a class=active href>
+
+npm i styledcomponents
+npm ..react-router-dom
+
+-------------------------------------------------------------6/7/23
+
+createBrowserRouter-- used in version 6.4
+createRoutesFromElement--
+
+const router = createBrowserRouter(createRoutesFromElements(
+<Route..>---PARENT ROUTE
+	<Route index />--it will contain the path of its parent,it cant have children
+	<Route>
+</Route>));
+
+
+<RouterProvider router={router}/>
+
+*The NavLink Link shoud be within the BrowserRouter
+
+*<div>
+	<Outlet />here is where the page required or choosed will be replaced
+ </div>
+---outlet will dispaly the child content in it,it is in the Routerprovider
+
+---------------------------------------------------------------8/7/23
+
+*<Routs path="*" element={<..>}/>
+--this is run if unknown path comes into existance
+
+---------------------------------------------------------------9/7/23
+Differnece Between useEffect and Loader
+loader-- given outside the function an it runs first before the component runs
+useEffect-- is given before the return
+
+sync--where one fun depend on the other
+asyn--if any delay go to another function..API interaction,any process that take time are given in this
+
+--
+import { useLoaderData } from "react-router-dom"
+
+const Careers = () => {
+
+  const careers = useLoaderData()
+  return (
+    <div className="careers">
+
+    </div>
+  )
+}
+
+export default Careers
+
+//loader function{It is a used for the fast retraival as it retrives before the component runs}
+
+export const careersLoader = async() =>{
+    const res = await fetch("http://localhost:3000/careers")
+
+    return res.json()
+}
+
+--useLoaderData is used to convert the promise into data ,it is given within the function outside the return
+
+*:id -- this is to represent the dynamic changing id
+
+----------------------------------------20/7/23
+
+*await can be given only within the sync function inorder make the system wait untill the fetch process completes
+
+*Links are generally in sting they wont take numbers
+
+*useparams will read the dynamic value from the link
+
+----------------------------------------21/7/23
+
+*useRouteError--- It is used to get the error message
+
+*a promise is return in the fetch process that promise.ok(res.ok) will check where the path is correct
+
+*As we hv gave :id any value is accepted here which may alse be a character which is not in the json file
+
+------------------------------------------22/7/23
+
+<Form method="post" action="help/contact">
+
+there are 4 types of request
+*Get--to get the data from the server
+*put--to replace some value here only the values can be changed not the attributes the id also cant be changed
+*post--it is used to add the content in the server
+*delete--used to delete the content
+
+action is something that tells us what is to be performed when the button is clicked
+
+
+
+
